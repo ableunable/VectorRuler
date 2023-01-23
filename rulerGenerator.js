@@ -7,24 +7,24 @@ var limitTickQty = function(){
     ruler.ticksPerUnit = Math.pow(ruler.subUnitBase,ruler.subUnitExponent)
     ruler.masterTickQty = ruler.ticksPerUnit * ruler.width
     if(ruler.height>100){
-        console.info("Unreasonable ruler height: "+ ruler.height + " reducing height")
+        console.info("Unreasonable ruler height: "+ ruler.height + "; reducing height.")
          ruler.height= 15
          document.getElementById("rulerHeight").value = ruler.height;
     }
     if(ruler.width>1000){
-        console.info("Unreasonable tick quantity: "+ ruler.masterTickQty + " reducing width")
+        console.info("Unreasonable tick quantity: "+ ruler.masterTickQty + "; reducing width.")
          ruler.width= 500
          document.getElementById("rulerWidth").value = ruler.width;
     }
      if(ruler.masterTickQty > 10000){
-        console.info("Unreasonable tick quantity: "+ ruler.masterTickQty + " reducing exponent")
+        console.info("Unreasonable tick quantity: "+ ruler.masterTickQty + "; reducing exponent.")
         if(ruler.subUnitExponent>1){
         ruler.subUnitExponent = ruler.subUnitExponent -1
         document.getElementById("subUnitExponent")[ruler.subUnitExponent].selected = true;
         }
      }
     if(ruler.ticksPerUnit > 100){
-        console.info("Unreasonable exponent: "+ ruler.ticksPerUnit+ " resetting to reasonable")
+        console.info("Unreasonable exponent: "+ ruler.ticksPerUnit+ "; resetting to reasonable.")
         ruler.subUnitExponent = 1
         document.getElementById("subUnitExponent")[ruler.subUnitExponent].selected = true;//selects resonable
     }
